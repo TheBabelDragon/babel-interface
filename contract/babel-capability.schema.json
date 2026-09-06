@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TheBabelDragon/babel-interface/contract/babel-capability.schema.json",
+  "title": "BabelCapability",
+  "type": "object",
+  "required": ["name", "description", "inputs", "outputs", "operation", "side_effects", "requires", "produces"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "inputs": { "type": "array" },
+    "outputs": { "type": "array" },
+    "operation": {
+      "type": "string",
+      "enum": ["read", "observe", "compute", "ingest", "emit", "control", "mutate", "discover"]
+    },
+    "side_effects": { "type": "array" },
+    "requires": { "type": "array" },
+    "produces": { "type": "array" },
+    "safe": { "type": "boolean" },
+    "entry": { "type": "string" },
+    "schema": { "type": "string" }
+  }
+}
