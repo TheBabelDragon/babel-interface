@@ -1,0 +1,69 @@
+babel: "0.1"
+owner: TheBabelDragon
+name: babel-ecosystem
+purpose: >
+  Cross-repository discovery contract for TheBabelDragon physical-field
+  and stimulus repositories. Discovery is read-only.
+discovery:
+  command: babel discover
+  output: json
+  mutation: forbidden
+protocol_repo: TheBabelDragon/babel-interface
+repositories:
+  babel-interface:
+    repo: TheBabelDragon/babel-interface
+    url: https://github.com/TheBabelDragon/babel-interface
+    role: protocol
+    babel_path: .babel
+    capabilities: [discover, inspect, capabilities, schema, relations, validate]
+    produces: [capability-graph]
+    consumes: [babel-manifest]
+  signal-processor:
+    repo: TheBabelDragon/signal-processor
+    url: https://github.com/TheBabelDragon/signal-processor
+    pages: https://thebabeldragon.github.io/signal-processor/
+    role: stimulus
+    babel_path: adapters/signal-processor/.babel
+    capabilities: [play-session, export-recipe, ingest-field-observation, emit-producer-packet]
+    produces: [StimulusSession, SignalProducerPacket]
+    consumes: [FieldObservation]
+  optical-body-s3:
+    repo: TheBabelDragon/optical-body-s3
+    url: https://github.com/TheBabelDragon/optical-body-s3
+    role: physical-body
+    babel_path: adapters/optical-body-s3/.babel
+    capabilities: [emit-field-observation, excite-laser, passive-scan]
+    produces: [FieldObservation]
+    consumes: [SerialCommand]
+  c3-field-swarm:
+    repo: TheBabelDragon/c3-field-swarm
+    url: https://github.com/TheBabelDragon/c3-field-swarm
+    role: wireless-edge
+    babel_path: adapters/c3-field-swarm/.babel
+    capabilities: [swarm-discover, field-tick, emit-field-delta, serial-census]
+    produces: [FieldView, FieldDelta, C3JSON]
+    consumes: [ESP-NOW]
+    isolates: [bylight_phy]
+  metafield-engine:
+    repo: TheBabelDragon/metafield-engine
+    url: https://github.com/TheBabelDragon/metafield-engine
+    role: substrate-engine
+    babel_path: adapters/metafield-engine/.babel
+    capabilities: [admit-observation, field-tick, field-view, apply-field-delta]
+    produces: [FieldTick, FieldView, WorldState]
+    consumes: [FieldObservation, FieldDelta, C3JSON]
+known_repositories:
+  babel-interface: TheBabelDragon/babel-interface
+  signal-processor: TheBabelDragon/signal-processor
+  optical-body-s3: TheBabelDragon/optical-body-s3
+  c3-field-swarm: TheBabelDragon/c3-field-swarm
+  metafield-engine: TheBabelDragon/metafield-engine
+  field-os: TheBabelDragon/field-os
+  field-bus: TheBabelDragon/field-bus
+  echo-grid-ultrasonic-os: TheBabelDragon/echo-grid-ultrasonic-os
+  eeg-loop: TheBabelDragon/eeg-loop
+  wifi-sensing-system: TheBabelDragon/wifi-sensing-system
+  metafield: TheBabelDragon/metafield
+  throne-room: TheBabelDragon/throne-room
+  hall-node-s3: TheBabelDragon/hall-node-s3
+  arty-realtime: TheBabelDragon/arty-realtime

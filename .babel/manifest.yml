@@ -1,0 +1,41 @@
+babel: "0.1"
+identity:
+  name: babel-interface
+  owner: TheBabelDragon
+  repo: TheBabelDragon/babel-interface
+  url: https://github.com/TheBabelDragon/babel-interface
+  kind: protocol
+  version: "0.1.0"
+purpose: >
+  Smallest working cross-repository protocol that makes TheBabelDragon
+  repositories discoverable as components. Does not reimplement applications.
+status: protocol
+entrypoints:
+  - kind: cli
+    command: babel discover
+    output: json
+  - kind: module
+    path: src/babel
+  - kind: pages
+    path: pages/index.html
+runtime:
+  language: python
+  requires:
+    - python>=3.10
+    - PyYAML
+inputs:
+  - name: catalog_root
+    schema: ecosystem.yml
+outputs:
+  - name: capability_graph
+    schema: capability-graph.schema.json
+capabilities:
+  - discover
+  - inspect
+  - capabilities
+  - schema
+  - relations
+  - validate
+operations:
+  safe: [discover, inspect, capabilities, schema, relations, validate]
+  mutation: []

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Babel ecosystem</title>
+</head>
+<body>
+  <h1>BABEL · ECOSYSTEM</h1>
+  <p>Machine contract is <code>.babel/</code>. This page visualizes <code>ecosystem.json</code>.</p>
+  <pre id="raw">loading…</pre>
+  <script>
+    fetch("ecosystem.json").then(r => r.json()).then(g => {
+      document.getElementById("raw").textContent = JSON.stringify(g, null, 2);
+    }).catch(err => { document.getElementById("raw").textContent = String(err); });
+  </script>
+</body>
+</html>
