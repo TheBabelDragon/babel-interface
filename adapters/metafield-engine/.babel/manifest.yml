@@ -1,0 +1,19 @@
+babel: "0.2"
+identity:
+  name: metafield-engine
+  owner: TheBabelDragon
+  repo: TheBabelDragon/metafield-engine
+  url: https://github.com/TheBabelDragon/metafield-engine
+  kind: substrate-engine
+  version: "0.1.0"
+purpose: Canonical World state. Systems emit deltas. Tick is derived compute.
+status: operational
+capabilities:
+  - admit-observation
+  - field-tick
+  - tick
+  - field-view
+  - apply-field-delta
+operations:
+  safe: [admit-observation, field-tick, tick, field-view]
+  mutation: [apply-field-delta]

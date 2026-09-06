@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FieldTick",
+  "type": "object",
+  "required": ["kind", "tick", "dt", "t", "source_class"],
+  "properties": {
+    "kind": { "type": "string", "const": "FieldTick" },
+    "tick": { "type": "integer", "minimum": 0 },
+    "dt": { "type": "number", "minimum": 0 },
+    "t": { "type": "number", "minimum": 0 },
+    "world_hash": { "type": "string" },
+    "deltas": { "type": "array" },
+    "source_class": { "type": "string", "enum": ["derived", "synthetic"] }
+  }
+}

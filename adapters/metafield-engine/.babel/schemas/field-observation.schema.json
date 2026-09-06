@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FieldObservation",
+  "type": "object",
+  "required": ["quantity", "value", "source_class"],
+  "properties": {
+    "quantity": { "type": "string", "minLength": 1 },
+    "value": { "type": "number" },
+    "source_class": { "type": "string", "enum": ["physical", "derived", "synthetic"] }
+  }
+}

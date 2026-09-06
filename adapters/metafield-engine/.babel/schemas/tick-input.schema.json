@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FieldTickInput",
+  "type": "object",
+  "required": ["dt"],
+  "properties": {
+    "dt": { "type": "number", "minimum": 0 }
+  },
+  "additionalProperties": false
+}
