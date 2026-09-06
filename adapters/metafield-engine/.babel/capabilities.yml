@@ -1,0 +1,60 @@
+capabilities:
+  - name: admit-observation
+    description: Admit an Observation into World
+    inputs: [FieldObservation]
+    outputs: [WorldState]
+    operation: ingest
+    side_effects: []
+    requires: [FieldObservation]
+    produces: [WorldState]
+    safe: true
+    schema: field-observation.schema.json
+  - name: field-tick
+    description: Advance World by one FieldTick
+    inputs: [dt]
+    outputs: [FieldTick]
+    operation: compute
+    side_effects: []
+    requires: []
+    produces: [FieldTick]
+    safe: true
+    schema: field-tick.schema.json
+  - name: tick
+    description: Software FieldTick through the babel adapter boundary
+    inputs: [dt]
+    outputs: [FieldTick]
+    operation: compute
+    side_effects: []
+    effects: []
+    requires: []
+    produces: [FieldTick]
+    safe: true
+    input_schema: tick-input.schema.json
+    output_schema: field-tick.schema.json
+    invocation:
+      type: command
+      executable: python3
+      args:
+        - babel-adapter
+        - tick
+      cwd: .
+      timeout_ms: 5000
+  - name: field-view
+    description: Read a FieldView of World
+    inputs: []
+    outputs: [FieldView]
+    operation: read
+    side_effects: []
+    requires: []
+    produces: [FieldView]
+    safe: true
+  - name: apply-field-delta
+    description: Apply a FieldDelta to World
+    inputs: [FieldDelta]
+    outputs: [WorldState]
+    operation: mutate
+    side_effects: [mutation]
+    effects: [mutation]
+    requires: [FieldDelta]
+    produces: [WorldState]
+    safe: false
