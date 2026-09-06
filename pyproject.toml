@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "babel-interface"
+version = "0.1.0"
+description = "Self-describing, AI-addressable contract for TheBabelDragon repositories."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "TheBabelDragon" }]
+dependencies = ["PyYAML>=6.0"]
+
+[project.scripts]
+babel = "babel.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
