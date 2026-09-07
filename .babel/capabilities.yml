@@ -1,0 +1,61 @@
+capabilities:
+  - name: discover
+    description: Return the complete normalized capability graph for the catalog root.
+    inputs: [catalog_root]
+    outputs: [capability-graph]
+    operation: discover
+    side_effects: []
+    requires: [ecosystem.yml]
+    produces: [capability-graph]
+    safe: true
+    entry: babel discover
+  - name: inspect
+    description: Inspect one catalogued repository and its incident edges.
+    inputs: [repository-name]
+    outputs: [repository, edges]
+    operation: read
+    side_effects: []
+    requires: [capability-graph]
+    produces: []
+    safe: true
+    entry: babel inspect
+  - name: capabilities
+    description: List typed capabilities for one repository or the whole catalog.
+    inputs: [repository-name]
+    outputs: [capabilities]
+    operation: read
+    side_effects: []
+    requires: [capability-graph]
+    produces: []
+    safe: true
+    entry: babel capabilities
+  - name: schema
+    description: Read a machine-readable schema by filename or repo:filename.
+    inputs: [schema-ref]
+    outputs: [schema]
+    operation: read
+    side_effects: []
+    requires: [schemas]
+    produces: []
+    safe: true
+    entry: babel schema
+  - name: relations
+    description: Return typed repository relationships.
+    inputs: [repository-name]
+    outputs: [edges, relations]
+    operation: read
+    side_effects: []
+    requires: [relations.yml]
+    produces: []
+    safe: true
+    entry: babel relations
+  - name: validate
+    description: Validate every catalogued manifest and emit the normalized graph.
+    inputs: [catalog_root]
+    outputs: [capability-graph, errors]
+    operation: discover
+    side_effects: []
+    requires: [ecosystem.yml]
+    produces: [capability-graph]
+    safe: true
+    entry: babel validate

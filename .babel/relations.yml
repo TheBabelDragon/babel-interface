@@ -1,0 +1,16 @@
+consumes:
+  - babel-manifest
+produces:
+  - capability-graph
+compatible_with:
+  - signal-processor
+  - optical-body-s3
+  - c3-field-swarm
+  - metafield-engine
+observes:
+  - signal-processor
+  - optical-body-s3
+  - c3-field-swarm
+  - metafield-engine
+depends_on: []
+isolates: []
