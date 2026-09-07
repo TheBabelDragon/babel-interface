@@ -1,0 +1,41 @@
+capabilities:
+  - name: swarm-discover
+    description: Discover live C3 nodes over ESP-NOW and adopt a coordinator if one exists.
+    inputs: [ESP-NOW]
+    outputs: [node-table]
+    operation: discover
+    side_effects: []
+    requires: [ESP-NOW]
+    produces: [node-table]
+    safe: true
+    entry: swarmctl discover
+  - name: field-tick
+    description: Advance swarm field time and publish a frozen FieldView.
+    inputs: [FieldView]
+    outputs: [FieldTick, FieldView]
+    operation: compute
+    side_effects: []
+    requires: []
+    produces: [FieldTick, FieldView]
+    safe: true
+    entry: tick
+  - name: emit-field-delta
+    description: Emit a FieldDelta describing the admitted state transition.
+    inputs: [FieldView]
+    outputs: [FieldDelta]
+    operation: emit
+    side_effects: []
+    requires: []
+    produces: [FieldDelta]
+    safe: true
+    schema: field-delta.schema.json
+  - name: serial-census
+    description: Print node census and coordinator state over serial / swarmctl.
+    inputs: []
+    outputs: [C3JSON]
+    operation: read
+    side_effects: []
+    requires: []
+    produces: [C3JSON]
+    safe: true
+    entry: swarmctl status

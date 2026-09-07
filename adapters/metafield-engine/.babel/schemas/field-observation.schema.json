@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TheBabelDragon/metafield-engine/schema/field-observation.schema.json",
+  "title": "FieldObservation",
+  "type": "object",
+  "required": ["field", "value", "provenance"],
+  "properties": {
+    "field": { "type": "string" },
+    "channel": { "type": "string" },
+    "value": { "type": ["number", "array", "object"] },
+    "unit": { "type": "string" },
+    "timestamp_ns": { "type": "integer" },
+    "field_epoch": { "type": "integer" },
+    "field_sequence": { "type": "integer" },
+    "node_id": { "type": "string" },
+    "provenance": {
+      "type": "object",
+      "required": ["class"],
+      "properties": {
+        "class": { "type": "string", "enum": ["physical", "simulated"] },
+        "source": { "type": "string" },
+        "instrument": { "type": "string" },
+        "node_id": { "type": "string" }
+      }
+    }
+  }
+}

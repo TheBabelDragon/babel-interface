@@ -1,0 +1,9 @@
+{
+  "field": "swarm",
+  "sequence": 18442,
+  "field_epoch": 12,
+  "node_id": "c3-04",
+  "op": "admit",
+  "payload": { "channel": "info", "value": 1.0 },
+  "provenance": { "class": "physical", "source": "swarm", "node_id": "c3-04" }
+}

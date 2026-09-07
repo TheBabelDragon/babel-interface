@@ -1,0 +1,40 @@
+babel: "0.1"
+identity:
+  name: metafield-engine
+  owner: TheBabelDragon
+  repo: TheBabelDragon/metafield-engine
+  url: https://github.com/TheBabelDragon/metafield-engine
+  kind: substrate-engine
+  version: "0.1.0"
+purpose: >
+  Physical-field substrate first. World admits Observations. A cell is an
+  address. Simulation is one consumer. Hardware is required.
+status: operational
+entrypoints:
+  - kind: hud
+    url: http://127.0.0.1:8765
+  - kind: cli
+    command: bash scripts/run-arch.sh
+runtime:
+  language: c++
+  requires: [physical-observation]
+inputs:
+  - name: FieldObservation
+    schema: field-observation.schema.json
+  - name: FieldDelta
+  - name: C3JSON
+outputs:
+  - name: FieldTick
+  - name: FieldView
+  - name: WorldState
+capabilities:
+  - admit-observation
+  - field-tick
+  - field-view
+  - apply-field-delta
+operations:
+  safe: [admit-observation, field-tick, field-view, apply-field-delta]
+  mutation: []
+notes: >
+  synthetic_cyd is gone. --synth exits. HUD badge stays WAIT until a
+  physical packet arrives.

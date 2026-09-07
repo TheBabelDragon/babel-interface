@@ -1,0 +1,39 @@
+capabilities:
+  - name: admit-observation
+    description: Admit a physical FieldObservation into World. Synthetic values are rejected.
+    inputs: [FieldObservation]
+    outputs: [WorldState]
+    operation: ingest
+    side_effects: []
+    requires: [physical-observation]
+    produces: [WorldState]
+    safe: true
+    schema: field-observation.schema.json
+  - name: field-tick
+    description: Advance the substrate clock and emit a FieldTick.
+    inputs: [WorldState]
+    outputs: [FieldTick]
+    operation: compute
+    side_effects: []
+    requires: []
+    produces: [FieldTick]
+    safe: true
+  - name: field-view
+    description: Publish a frozen FieldView for observers and the HUD.
+    inputs: [WorldState]
+    outputs: [FieldView]
+    operation: emit
+    side_effects: []
+    requires: []
+    produces: [FieldView]
+    safe: true
+    entry: http://127.0.0.1:8765
+  - name: apply-field-delta
+    description: Apply an admitted FieldDelta (optical body or C3 swarm) to World.
+    inputs: [FieldDelta, C3JSON]
+    outputs: [WorldState]
+    operation: ingest
+    side_effects: []
+    requires: []
+    produces: [WorldState]
+    safe: true

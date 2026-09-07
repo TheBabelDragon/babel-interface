@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TheBabelDragon/c3-field-swarm/schema/field-delta.schema.json",
+  "title": "FieldDelta",
+  "type": "object",
+  "required": ["field", "sequence"],
+  "properties": {
+    "field": { "type": "string" },
+    "sequence": { "type": "integer" },
+    "field_epoch": { "type": "integer" },
+    "node_id": { "type": "string" },
+    "op": { "type": "string" },
+    "payload": { "type": "object" },
+    "provenance": { "type": "object" }
+  }
+}

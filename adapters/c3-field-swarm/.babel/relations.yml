@@ -1,0 +1,11 @@
+consumes:
+  - ESP-NOW
+produces:
+  - metafield-engine
+compatible_with:
+  - metafield-engine
+  - field-os
+observes: []
+depends_on: []
+isolates:
+  - bylight_phy

@@ -1,0 +1,17 @@
+consumes:
+  - optical-body-s3
+  - c3-field-swarm
+  - signal-processor
+produces:
+  - FieldTick
+  - FieldView
+  - WorldState
+compatible_with:
+  - optical-body-s3
+  - c3-field-swarm
+  - field-os
+observes:
+  - optical-body-s3
+  - c3-field-swarm
+depends_on: []
+isolates: []
