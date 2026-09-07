@@ -1,0 +1,35 @@
+babel: "0.1"
+identity:
+  name: optical-body-s3
+  owner: TheBabelDragon
+  repo: TheBabelDragon/optical-body-s3
+  url: https://github.com/TheBabelDragon/optical-body-s3
+  kind: physical-body
+  version: "0.1.0"
+purpose: >
+  ESP32-S3 optical field node. Laser excitation plus BPW34 measurement body.
+  Emits FieldObservation packets. Does not run MetaField.
+status: operational
+entrypoints:
+  - kind: serial
+    commands: [EXCITE, MAP, VERIFY, PASSIVE, DUMP]
+  - kind: firmware
+    path: src
+runtime:
+  language: c++
+  platform: espressif32
+  board: esp32-s3
+inputs:
+  - name: SerialCommand
+outputs:
+  - name: FieldObservation
+    schema: field-observation.schema.json
+capabilities:
+  - emit-field-observation
+  - excite-laser
+  - passive-scan
+operations:
+  safe: [emit-field-observation, passive-scan]
+  mutation: [excite-laser]
+notes: >
+  Pins are compile-time. No synthetic detector mode. ADS1115 required.

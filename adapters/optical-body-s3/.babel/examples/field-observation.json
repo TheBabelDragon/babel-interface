@@ -1,0 +1,18 @@
+{
+  "field": "optical",
+  "channel": "bpw34",
+  "location": { "kind": "node", "id": "optical-body-s3" },
+  "value": 0.42,
+  "unit": "V",
+  "uncertainty": 0.01,
+  "timestamp_ns": 1756930000000000000,
+  "node_id": "optical-body-s3",
+  "sequence": 12,
+  "health": "ok",
+  "provenance": {
+    "class": "physical",
+    "source": "sensor",
+    "instrument": "BPW34+ADS1115",
+    "node_id": "optical-body-s3"
+  }
+}

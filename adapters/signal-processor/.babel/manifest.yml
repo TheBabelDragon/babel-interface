@@ -1,0 +1,37 @@
+babel: "0.1"
+identity:
+  name: signal-processor
+  owner: TheBabelDragon
+  repo: TheBabelDragon/signal-processor
+  url: https://github.com/TheBabelDragon/signal-processor
+  kind: stimulus
+  version: "0.1.0"
+purpose: >
+  Browser stimulus / session loop. Audio only. Ingests FieldObservation as
+  a reward signal. Does not drive optical or ultrasonic bodies.
+status: operational
+entrypoints:
+  - kind: pages
+    url: https://thebabeldragon.github.io/signal-processor/
+  - kind: module
+    path: producer.js
+  - kind: module
+    path: bridge.js
+runtime:
+  language: javascript
+  surface: browser
+inputs:
+  - name: FieldObservation
+    schema: field-observation.schema.json
+outputs:
+  - name: StimulusSession
+    schema: recipe.schema.json
+  - name: SignalProducerPacket
+capabilities:
+  - play-session
+  - export-recipe
+  - ingest-field-observation
+  - emit-producer-packet
+operations:
+  safe: [play-session, export-recipe, ingest-field-observation, emit-producer-packet]
+  mutation: []

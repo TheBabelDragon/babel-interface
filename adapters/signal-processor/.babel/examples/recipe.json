@@ -1,0 +1,9 @@
+{
+  "kind": "binaural",
+  "duration_s": 600,
+  "carrier_hz": 200,
+  "beat_hz": 10,
+  "stack": "alpha-up",
+  "polarity": "reward-high",
+  "loop": "entrain"
+}

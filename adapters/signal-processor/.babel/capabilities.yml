@@ -1,0 +1,43 @@
+capabilities:
+  - name: play-session
+    description: Cold-start a stimulus session (start → stop → isolate). Audio only.
+    inputs: [recipe]
+    outputs: [StimulusSession]
+    operation: emit
+    side_effects: []
+    requires: []
+    produces: [StimulusSession]
+    safe: true
+    entry: producer.js
+    schema: recipe.schema.json
+  - name: export-recipe
+    description: Export the current session recipe as JSON.
+    inputs: []
+    outputs: [recipe]
+    operation: emit
+    side_effects: []
+    requires: []
+    produces: [recipe]
+    safe: true
+    schema: recipe.schema.json
+  - name: ingest-field-observation
+    description: >
+      Accept a FieldObservation (optical-body-s3 or Echo Grid) as the
+      reward signal. health=partial is not treated as a full reward.
+    inputs: [FieldObservation]
+    outputs: [reward-score]
+    operation: ingest
+    side_effects: []
+    requires: [optical-body-s3]
+    produces: [reward-score]
+    safe: true
+    schema: field-observation.schema.json
+  - name: emit-producer-packet
+    description: Emit a SignalProducerPacket describing the live stimulus.
+    inputs: [StimulusSession]
+    outputs: [SignalProducerPacket]
+    operation: emit
+    side_effects: []
+    requires: []
+    produces: [SignalProducerPacket]
+    safe: true

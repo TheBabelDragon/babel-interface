@@ -1,0 +1,12 @@
+consumes:
+  - SerialCommand
+produces:
+  - metafield-engine
+  - signal-processor
+compatible_with:
+  - metafield-engine
+  - signal-processor
+observes: []
+controls: []
+depends_on: []
+isolates: []

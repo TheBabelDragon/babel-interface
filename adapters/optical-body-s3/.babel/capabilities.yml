@@ -1,0 +1,31 @@
+capabilities:
+  - name: emit-field-observation
+    description: Emit a FieldObservation packet from the optical measurement body.
+    inputs: []
+    outputs: [FieldObservation]
+    operation: emit
+    side_effects: []
+    requires: [ADS1115]
+    produces: [FieldObservation]
+    safe: true
+    schema: field-observation.schema.json
+  - name: excite-laser
+    description: Shape a wired laser source once via serial EXCITE <id>.
+    inputs: [SerialCommand]
+    outputs: [FieldObservation]
+    operation: control
+    side_effects: [drive-laser]
+    requires: [wired-laser]
+    produces: [FieldObservation]
+    safe: false
+    entry: "EXCITE <id>"
+  - name: passive-scan
+    description: Resume the cyclic optical scan loop.
+    inputs: [SerialCommand]
+    outputs: [FieldObservation]
+    operation: observe
+    side_effects: []
+    requires: [ADS1115]
+    produces: [FieldObservation]
+    safe: true
+    entry: PASSIVE

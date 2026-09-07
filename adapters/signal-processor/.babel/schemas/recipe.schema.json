@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TheBabelDragon/signal-processor/schema/recipe.schema.json",
+  "title": "StimulusRecipe",
+  "type": "object",
+  "required": ["kind", "duration_s"],
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": ["binaural", "isochronic", "modulation", "stack"]
+    },
+    "duration_s": { "type": "number", "minimum": 0 },
+    "carrier_hz": { "type": "number" },
+    "beat_hz": { "type": "number" },
+    "stack": { "type": "string" },
+    "polarity": { "type": "string", "enum": ["reward-high", "inhibit-high"] },
+    "loop": { "type": "string", "enum": ["entrain", "reward"] }
+  }
+}

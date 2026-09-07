@@ -1,0 +1,12 @@
+consumes:
+  - optical-body-s3
+produces:
+  - SignalProducerPacket
+  - StimulusSession
+compatible_with:
+  - optical-body-s3
+  - metafield-engine
+observes:
+  - optical-body-s3
+depends_on: []
+isolates: []

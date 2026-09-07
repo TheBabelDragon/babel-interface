@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TheBabelDragon/signal-processor/schema/field-observation.schema.json",
+  "title": "FieldObservation",
+  "type": "object",
+  "required": ["field", "value"],
+  "properties": {
+    "field": { "type": "string" },
+    "channel": { "type": "string" },
+    "value": { "type": ["number", "array"] },
+    "unit": { "type": "string" },
+    "health": { "type": "string", "enum": ["ok", "partial", "fault"] },
+    "timestamp_ns": { "type": "integer" },
+    "node_id": { "type": "string" },
+    "provenance": { "type": "object" }
+  }
+}

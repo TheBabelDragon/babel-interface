@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TheBabelDragon/optical-body-s3/schema/field-observation.schema.json",
+  "title": "FieldObservation",
+  "type": "object",
+  "required": ["field", "value", "provenance"],
+  "properties": {
+    "field": { "type": "string", "const": "optical" },
+    "channel": { "type": "string" },
+    "location": {
+      "type": "object",
+      "properties": {
+        "kind": { "type": "string" },
+        "id": { "type": "string" }
+      }
+    },
+    "value": { "type": ["number", "array"] },
+    "unit": { "type": "string" },
+    "uncertainty": { "type": "number" },
+    "timestamp_ns": { "type": "integer" },
+    "node_id": { "type": "string" },
+    "sequence": { "type": "integer" },
+    "health": { "type": "string", "enum": ["ok", "partial", "fault"] },
+    "provenance": {
+      "type": "object",
+      "required": ["class", "source"],
+      "properties": {
+        "class": { "type": "string", "enum": ["physical"] },
+        "source": { "type": "string" },
+        "instrument": { "type": "string" },
+        "node_id": { "type": "string" }
+      }
+    }
+  }
+}
