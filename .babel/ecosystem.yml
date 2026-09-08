@@ -52,6 +52,14 @@ repositories:
     capabilities: [admit-observation, field-tick, field-view, apply-field-delta]
     produces: [FieldTick, FieldView, WorldState]
     consumes: [FieldObservation, FieldDelta, C3JSON]
+  canonsphere:
+    repo: TheBabelDragon/canonsphere
+    url: https://github.com/TheBabelDragon/canonsphere
+    role: sigil-engine
+    babel_path: adapters/canonsphere/.babel
+    capabilities: [launch-from-yaml, field-tick, verify-sigil, emit-rmeme]
+    produces: [FieldTick, Sigil, RMEME]
+    consumes: [launch.yaml]
 known_repositories:
   babel-interface: TheBabelDragon/babel-interface
   signal-processor: TheBabelDragon/signal-processor
@@ -67,3 +75,4 @@ known_repositories:
   throne-room: TheBabelDragon/throne-room
   hall-node-s3: TheBabelDragon/hall-node-s3
   arty-realtime: TheBabelDragon/arty-realtime
+  canonsphere: TheBabelDragon/canonsphere
