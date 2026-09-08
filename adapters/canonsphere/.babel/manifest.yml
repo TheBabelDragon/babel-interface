@@ -1,0 +1,33 @@
+babel: "0.1"
+identity:
+  name: canonsphere
+  owner: TheBabelDragon
+  repo: TheBabelDragon/canonsphere
+  url: https://github.com/TheBabelDragon/canonsphere
+  kind: sigil-engine
+  version: "0.1.0"
+purpose: >
+  Canonical field-state hashing to a deterministic stereographic sigil.
+  YAML is the launch surface. RMEME is the replay identity card.
+status: experimental
+entrypoints:
+  - kind: cli
+    command: python launch.py launch.yaml
+    output: json
+runtime:
+  language: python
+  requires: [numpy, PyYAML]
+inputs:
+  - name: launch.yaml
+outputs:
+  - name: FieldTick
+  - name: Sigil
+  - name: RMEME
+capabilities:
+  - launch-from-yaml
+  - field-tick
+  - verify-sigil
+  - emit-rmeme
+operations:
+  safe: [launch-from-yaml, field-tick, verify-sigil, emit-rmeme]
+  mutation: [impinge]

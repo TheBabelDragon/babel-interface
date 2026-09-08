@@ -1,0 +1,38 @@
+capabilities:
+  - name: launch-from-yaml
+    description: Boot CANONSPHERE from launch.yaml.
+    inputs: [launch.yaml]
+    outputs: [FieldTick, RMEME]
+    operation: launch
+    side_effects: []
+    requires: [launch.yaml]
+    produces: [FieldTick, RMEME]
+    safe: true
+    entry: python launch.py launch.yaml
+  - name: field-tick
+    description: Commit a hashed FieldTick.
+    inputs: [FieldState]
+    outputs: [FieldTick]
+    operation: compute
+    side_effects: []
+    requires: []
+    produces: [FieldTick]
+    safe: true
+  - name: verify-sigil
+    description: Re-derive sigil identity from state hash.
+    inputs: [FieldTick]
+    outputs: [pass-fail]
+    operation: read
+    side_effects: []
+    requires: [FieldTick]
+    produces: []
+    safe: true
+  - name: emit-rmeme
+    description: Emit the replay-identity card.
+    inputs: [FieldTick]
+    outputs: [RMEME]
+    operation: emit
+    side_effects: []
+    requires: [FieldTick]
+    produces: [RMEME]
+    safe: true
